@@ -1,0 +1,25 @@
+title: Cửu âm chân kinh
+description: Tuyển tập code đạo kinh thư
+# This folder is where all the files related to the blog would live
+blogFolder: blog
+bannerImage: ./banner.jpg
+logoImage: ./logo.webp
+navLinks:
+  - title: Docs
+    url: https://docs.truegit.io
+    isExternal: true
+  - title: Clone Me
+    url: https://github.com/Kollate/truegit-test
+    isExternal: true
+socials:
+  github: https://github.com/marucube35
+  facebook: https://www.facebook.com/profile.php?id=100009916021095
+authors:
+  quan:
+    name: Lê Minh Quân
+    title: Student
+    description: Nghiện sĩ văn vẻ thích viết lách 🤪 
+    profileImage: "./assets/avatar.jpg"
+    socials: 
+      github: https://github.com/marucube35
+      facebook: https://www.facebook.com/profile.php?id=100009916021095
