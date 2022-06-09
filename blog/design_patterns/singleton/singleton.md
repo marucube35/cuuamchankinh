@@ -7,7 +7,7 @@ authors:
   - quan
 slug: singleton-pattern
 title: Singleton
-subTitle: Vạn Kiếm Quy Tông. Nguyên mẫu này đảm bảo một và chỉ một đối tượng được tạo ra từ lớp đối tượng. Đồng thời cho phép truy cập toàn cục (globally) đến đối tượng này.
+subTitle: Đảm bảo có một và chỉ một đối tượng được tạo ra.
 disableSuggestEdit: true
 bannerImage: ./singleton.png
 ---
@@ -30,9 +30,7 @@ Khi implement Singleton pattern, ta cần tuân thủ các quy tắc sau:
 - Tạo ra một biến **private static** để đảm bảo biến chỉ được khởi tạo trong class. 
 - Có một phương thức **public static** để trả về instance được khởi tạo ở trên.
 
-```ad-info
-Tùy từng loại ngôn ngữ mà có nhiều cách implement khác nhau. Chẳng hạn JAVA có thể sử dụng khởi tạo Early/Eager, nhưng C++ thì không. 🤔 Bài viết này được viết dựa trên ngôn ngữ C/C++.
-```
+> Tùy từng loại ngôn ngữ mà có nhiều cách implement khác nhau. Chẳng hạn JAVA có thể sử dụng khởi tạo Early/Eager, nhưng C++ thì không. 🤔 Bài viết này được viết dựa trên ngôn ngữ C/C++.
 
 ## Lazy Initialization
 Cách xây dựng này tạo ra instance chỉ khi nào chúng ta cần dùng đến (gọi hàm `getInstance`). Nó trái ngược với Early/Eager khi mà cách khởi tạo đó khởi tạo instance bất chấp chúng ta có sử dụng đến nó hay không.
@@ -74,10 +72,7 @@ public:
 DarkModeButton* DarkModeButton::_instance = nullptr;
 ```
 
-```ad-important
-title: Lưu ý
-Luôn phải khởi tạo giá trị cho instance pointer, vì instance chỉ được tạo ra khi có nhu cầu. Nếu không khởi tạo thì vùng nhớ mà instance trỏ đến sẽ là vùng nhớ rác, dẫn đến việc hao phí bộ nhớ không cần thiết.
-```
+> **Lưu ý**: luôn phải khởi tạo giá trị cho instance pointer, vì instance chỉ được tạo ra khi có nhu cầu. Nếu không khởi tạo thì vùng nhớ mà instance trỏ đến sẽ là vùng nhớ rác, dẫn đến việc hao phí bộ nhớ không cần thiết.
 
 Có thể dùng từ khóa `inline` (có ở C++17) để khởi tạo bên trong class: 
 
@@ -117,12 +112,9 @@ Dark mode
 
 Có thể thấy, dù cho hàm `getInstance` được gọi hai lần, nhưng vẫn chỉ có một constructor được tạo ra. Và đồng thời, nếu instance đã được tạo, hàm `getInstance` sẽ trả về đối tượng đã tạo. Địa chỉ của con trỏ `button` và `button2` đều là một, thể hiện cho việc chúng cùng trỏ vào một vùng nhớ.
 
-```ad-bug
-title: Pointer Problem!
-Class `DarkModeButton` được tạo ra với con trỏ `_instance`, nhưng không có hàm hủy nào được gọi. Vì vẫn chưa có một object nào thực sự được tạo ra lúc run time (`_instance` sinh ra lúc compile time vì nằm trong khai báo class). 
-```
+> **Vấn đề con trỏ**: class `DarkModeButton` được tạo ra với con trỏ `_instance`, nhưng không có hàm hủy nào được gọi. Vì vẫn chưa có một object nào thực sự được tạo ra lúc run time (`_instance` sinh ra lúc compile time vì nằm trong khai báo class). 
 
-Để tự động giải phóng vùng nhớ cho con trỏ `_instance`, ta cần sử dụng con trỏ thông minh ([[C-C++ Tips & Techniques#Smart Pointer]]) như sau:
+Để tự động giải phóng vùng nhớ cho con trỏ `_instance`, ta cần sử dụng con trỏ thông minh như sau:
 
 ```cpp
 #include <memory>
@@ -148,10 +140,7 @@ public:
 
 
 ## Thread Safe Initialization
-```ad-bug
-title: Trường hợp đa luồng
-Cách khởi tạo trên chỉ hoạt động trong môi trường đơn luồng. Giả sử có hai luồng chạy song song và cùng gọi đến hàm `getInstance` trong cùng một thời điểm, lúc này hàm sẽ đồng thời tạo ra hai instance pointer, dẫn đến việc vi phạm nguyên tắc của Singleton.
-```
+> **Trường hợp đa luồng**: cách khởi tạo trên chỉ hoạt động trong môi trường đơn luồng. Giả sử có hai luồng chạy song song và cùng gọi đến hàm `getInstance` trong cùng một thời điểm, lúc này hàm sẽ đồng thời tạo ra hai instance pointer, dẫn đến việc vi phạm nguyên tắc của Singleton.
 
 Để khắc phục vấn đề trên, ta không tạo ra instance pointer trong phần khai báo thuộc tính nữa. Thay vào đó, ta tạo luôn một instance/instance pointer bên trong hàm `getInstance`. 
 
@@ -228,9 +217,8 @@ int main()
 }
 ```
 
-```ad-warning
-Hai cách xây dựng hàm `getInstance` trên chỉ thread safe với C++11.
-```
+> **Chú ý**: hai cách xây dựng hàm `getInstance` trên chỉ thread safe với C++11.
+
 
 # Use Cases
 Sử dụng khi ta muốn:

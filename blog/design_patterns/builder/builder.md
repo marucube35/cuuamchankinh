@@ -1,8 +1,21 @@
-#computer/design_pattern 
+---
+date: '2022-06-09'
+tags:
+  - design_patterns
+featured: true
+authors:
+  - quan
+slug: prototype-pattern
+title: Prototype
+subTitle: Tách việc xây dựng những đối tượng phức tạp nhưng tương đồng thành nhiều bước.
+disableSuggestEdit: true
+bannerImage: ./builder.png
+---
+
+Banner Source: https://refactoring.guru/design-patterns
+
 # Definition
 > [Builder](https://en.wikipedia.org/wiki/Builder_pattern) is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
-
-![[design_pattern_10.png]]
 
 ## Analogy
 Mỗi căn nhà đơn giản đều có bốn bức tường, sàn nhà, mái nhà, etc. Xây một căn nhà như thế sẽ tốn rất nhiều công sức và vật liệu, chưa kể mỗi căn nhà đều có thêm nhiều decoration khác chẳng hạn như cây hoa lá cành, hồ cá, tượng waifu... à nhầm tượng lân sư.
@@ -77,7 +90,7 @@ public:
 
 Nếu tham số nào không sử dụng thì ta có thể truyền NULL. Tuy nhiên, điều này làm cho constructor sở hữu số lượng tham số khổng lồ, có thể gây ra việc nhầm lẫn thứ tự tham số. Hơn thế nữa, cách làm này lãng phí tham số khi không sử dụng.
 
-![[design_pattern_11.png]]
+![](design_pattern_11.png)
 
 Tồn tại một giải pháp mà chúng ta nghĩ ngay đến là xây dựng các class dẫn xuất extends từ base class. 
 
@@ -104,7 +117,7 @@ Thế nên, để giải quyết tình trạng trên, tôi xin giới thiệu b�
 
 Công pháp này nói rằng, ta cần tổ chức constructor của object thành nhiều thành phần nhỏ dễ quản lý. Khi làm như vậy, chúng ta có thể extend những thuộc tính này tùy thích trong builder class. 
 
-![[design_pattern_12.png]]
+![](design_pattern_12.png)
 
 ```cpp
 class Builder{
@@ -187,7 +200,7 @@ Ngoài ra, director sẽ giấu tất cả các bước thực hiện của buil
 
 # Implementation
 ## UML
-![[design_pattern_13.png]]
+![](design_pattern_13.png)
 
 - Bước 1: Xây dựng Builder Interface khai báo tất cả các bước để contruct một product (product ở đây là `House`). Builder Interface là optional.
 - Bước 2: Cung cấp các implementations khác nhau của giao diện đã xây dựng. Nói ngắn gọn, ta đi xây dựng các Concrete Builder.
@@ -321,7 +334,7 @@ Builder không nhất thiết phải sử dụng Interface.
 ```
 
 ## Without Director
-Đối với cách implement này, ta sẽ cài đặt thêm hàm `buildHouse` cho giao diện. Thay vì dùng Director implement hàm `buildFullHouse` gọi từng bước của builder, ta sử dụng [[Factory]] Pattern để tạo ra nhà máy và gọi hàm `buildHouse` dựa trên tham số tùy chọn.
+Đối với cách implement này, ta sẽ cài đặt thêm hàm `buildHouse` cho giao diện. Thay vì dùng Director implement hàm `buildFullHouse` gọi từng bước của builder, ta sử dụng Factory Pattern để tạo ra nhà máy và gọi hàm `buildHouse` dựa trên tham số tùy chọn.
 
 **Code**
 Giao diện builder có thêm hàm `buildHouse`.

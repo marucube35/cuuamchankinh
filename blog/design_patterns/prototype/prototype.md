@@ -1,8 +1,21 @@
-#computer/design_pattern 
+---
+date: '2022-06-09'
+tags:
+  - design_patterns
+featured: true
+authors:
+  - quan
+slug: prototype-pattern
+title: Prototype
+subTitle: Giúp sao chép đối tượng có sẵn mà không phụ thuộc vào class đó.
+disableSuggestEdit: true
+bannerImage: ./prototype.png
+---
+
+Banner Source: https://refactoring.guru/design-patterns
+
 # Definition
 > [**Prototype**](https://en.wikipedia.org/wiki/Prototype_pattern) is a creational design pattern that lets you copy existing objects without making your code dependent on their classes.
-
-![[design_pattern_7.png]]
 
 ## Analogy
 Giả sử chúng ta là một anh chàng may mắn được bố mẹ lì xì cho một chiếc Gaming PC khủng chỉ để "học online". 
@@ -67,14 +80,14 @@ Việc copy một đối tượng được xây dựng sẵn gọi là **Prototy
 
 Một object mà hỗ trợ cloning thì được gọi là prototype (bản thân một clone object có thể được clone tiếp). 
 
-![[design_pattern_4.png]]
+![](design_pattern_4.png)
 
-Nguồn ảnh minh họa: [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)
+Image Source: [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)
 
 # Implementation
 ## Basic Implementation
 **Diagram**
-![[design_pattern_5.png]]
+![](design_pattern_5.png)
 
 **Steps**
 - Bước 1: xây dựng một inteface/abstract class (`PC`) để giao tiếp với client. Thông thường, interface này chỉ chứa mỗi phương thức `clone`.
@@ -117,7 +130,7 @@ public:
 ## Registry Implementation
 **Diagram**
 
-![[design_pattern_6.png]]
+![](design_pattern_6.png)
 
 
 Ở cách implement này, ta xây dựng thêm một class ứng dụng [[Factory]] gọi là **Prototype Registry**. Prototype Registry cung cấp một cách dễ tiếp cận cho các class thường sử dụng. Nó chứa sẵn một danh sách các pre-built objects sẵn sàng để được clone. 
@@ -166,6 +179,4 @@ cout << "Type of PC: " << typeid(*newPC).name() << endl; // class WorkingPC
 - Khi chúng ta nhận object từ một bên thứ ba thông qua interface nào đó, đồng thời chúng ta không biết thông tin của Concrete Classes. Và chúng ta muốn code của mình không phụ thuộc vào bên thứ ba.
 - Khi có quá nhiều class kế thừa phức tạp mà chỉ khác nhau bởi cách chúng khởi tạo và cấu hình.
 
-```ad-summary
-**Prototype** design pattern allows you to create objects by **cloning** an existing object instead of creating a new object from scratch. This pattern is used when the process of **object creation is costly**. when cloning, the newly copied object contains the same characteristics as its source object. After cloning, we can change the values of the new object’s properties as required. This pattern comes under a **creational** pattern.
-```
+> **Tổng kết**: Prototype design pattern allows you to create objects by **cloning** an existing object instead of creating a new object from scratch. This pattern is used when the process of **object creation is costly**. when cloning, the newly copied object contains the same characteristics as its source object. After cloning, we can change the values of the new object’s properties as required. This pattern comes under a **creational** pattern.

@@ -7,7 +7,7 @@ authors:
   - quan
 slug: factory-pattern
 title: Factory
-subTitle: Ngũ Hành Bát Quái Trận. Nguyên mẫu thiết kế này nói rằng chỉ cần định nghĩa một giao diện duy nhất cho việc tạo các lớp đối tượng và để các lớp con quyết định lớp đối tượng nào sẽ được tạo ra.
+subTitle: Tạo ra giao diện giúp sản sinh các loại đối tượng khác nhau.
 disableSuggestEdit: true
 bannerImage: ./factory.png
 ---
@@ -54,9 +54,9 @@ Trong hai giản đồ trên, `Manipulator` và `Conection` là hai Interface/Ab
 
 # Implementation
 ## Abstract Class
-Để gom nhóm các class có dùng chung một số thuộc tính, ta ứng dụng [[Polymorphism]] và xây dựng một base class (`Laptop`) chung để handle các derived class (`MacBook`, `LegionFive`, `MSI`).
+Để gom nhóm các class có dùng chung một số thuộc tính, ta ứng dụng Polymorphism và xây dựng một base class (`Laptop`) chung để handle các derived class (`MacBook`, `LegionFive`, `MSI`).
 
-Nhằm bắt buộc các phương thức của lớp con phải được implement, ta cần ứng dụng [[Abstraction]] và tạo ra một **Abstract Class** hay còn gọi là một **Interface** bằng cách biến các hàm trong `Laptop` thành thuần ảo.
+Nhằm bắt buộc các phương thức của lớp con phải được implement, ta cần ứng dụng Abstraction và tạo ra một **Abstract Class** hay còn gọi là một **Interface** bằng cách biến các hàm trong `Laptop` thành thuần ảo.
 
 ```cpp
 class Laptop {
@@ -169,9 +169,7 @@ Repository Factory Class có thuộc tính là một danh sách các instance. N
 
 ![](design_pattern_3.png "Repository Factory")
 
-```ad-tip
-Lớp Factory của một giao diện cụ thể thường được dùng đi dùng lại. Vì thế, chúng ta nên cài đặt [[Singleton]] cho lớp này.
-```
+> **Tip**: Lớp Factory của một giao diện cụ thể thường được dùng đi dùng lại. Vì thế, chúng ta nên cài đặt [[Singleton]] cho lớp này.
 
 # Use Cases
 - Có thể nói, chúng ta sử dụng Factory Method Pattern khi có không biết derived class được tạo ra là class nào. 
