@@ -7,7 +7,7 @@ authors:
   - quan
 slug: singleton-pattern
 title: Singleton
-subTitle: Vạn Kiếm Quy Tông
+subTitle: Vạn Kiếm Quy Tông. Nguyên mẫu này đảm bảo một và chỉ một đối tượng được tạo ra từ lớp đối tượng. Đồng thời cho phép truy cập toàn cục (globally) đến đối tượng này.
 disableSuggestEdit: true
 bannerImage: ./singleton.png
 ---

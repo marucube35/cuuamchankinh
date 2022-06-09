@@ -7,7 +7,7 @@ authors:
   - quan
 slug: factory-pattern
 title: Factory
-subTitle: 
+subTitle: Ngũ Hành Bát Quái Trận. Nguyên mẫu thiết kế này nói rằng chỉ cần định nghĩa một giao diện duy nhất cho việc tạo các lớp đối tượng và để các lớp con quyết định lớp đối tượng nào sẽ được tạo ra.
 disableSuggestEdit: true
 bannerImage: ./factory.png
 ---
