@@ -5,12 +5,14 @@ tags:
 featured: true
 authors:
   - quan
-slug: singleton
+slug: singleton-pattern
 title: Singleton
 subTitle: Vạn Kiếm Quy Tông
 disableSuggestEdit: true
 bannerImage: ./singleton.png
 ---
+
+Banner Source: https://refactoring.guru/design-patterns
 
 # Definition
 
