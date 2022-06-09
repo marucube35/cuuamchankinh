@@ -5,8 +5,8 @@ tags:
 featured: true
 authors:
   - quan
-slug: prototype-pattern
-title: Prototype
+slug: builder-pattern
+title: Builder
 subTitle: Tách việc xây dựng những đối tượng phức tạp nhưng tương đồng thành nhiều bước.
 disableSuggestEdit: true
 bannerImage: ./builder.png
