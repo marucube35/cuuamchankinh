@@ -2,7 +2,6 @@
 date: '2022-06-09'
 tags:
   - design_patterns
-featured: true
 authors:
   - quan
 slug: factory-pattern
