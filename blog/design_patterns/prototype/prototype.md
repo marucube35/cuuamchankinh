@@ -173,7 +173,7 @@ PC* newPC = pc->clone();
 cout << "Type of PC: " << typeid(*newPC).name() << endl; // class WorkingPC
 ```
 
-# Usage
+# Use Cases
 - Khi chi phí để tạo mới một object quá lớn.
 - Khi chúng ta nhận object từ một bên thứ ba thông qua interface nào đó, đồng thời chúng ta không biết thông tin của Concrete Classes. Và chúng ta muốn code của mình không phụ thuộc vào bên thứ ba.
 - Khi có quá nhiều class kế thừa phức tạp mà chỉ khác nhau bởi cách chúng khởi tạo và cấu hình.
