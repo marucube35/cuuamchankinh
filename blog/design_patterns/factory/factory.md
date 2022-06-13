@@ -110,7 +110,7 @@ Có thể hiểu đoạn code trên tương tự việc chúng ta define nhiều
 #define LAPTOP_TYPE_DEFAULT 3; 
 ```
 
-Bản chất của chúng là các macro, do đó chúng sẽ không tạo ra vùng nhớ để chứa các giá trị. Chỉ khi nào sử dụng đến thì các giá trị mới được thay vào nơi gọi macro. Có thể tham khảo thêm ở bài [[MIPS Assembly Introduction]] của môn học Hệ thống máy tính.
+Bản chất của chúng là các macro, do đó chúng sẽ không tạo ra vùng nhớ để chứa các giá trị. Chỉ khi nào sử dụng đến thì các giá trị mới được thay vào nơi gọi macro.
 
 ## Factory Class
 Sau cùng, ta tạo một class đại diện cho một cái nhà máy, hay còn gọi là **Creator Class**. Đồng thời tạo ra một static factory method để sản sinh ra những instance thuộc nhiều loại laptop khác nhau.
@@ -168,7 +168,7 @@ Repository Factory Class có thuộc tính là một danh sách các instance. N
 
 ![](design_pattern_3.png "Repository Factory")
 
-> **Tip**: Lớp Factory của một giao diện cụ thể thường được dùng đi dùng lại. Vì thế, chúng ta nên cài đặt [[Singleton]] cho lớp này.
+> **Tip**: Lớp Factory của một giao diện cụ thể thường được dùng đi dùng lại. Vì thế, chúng ta nên cài đặt Singleton cho lớp này.
 
 # Use Cases
 - Có thể nói, chúng ta sử dụng Factory Method Pattern khi có không biết derived class được tạo ra là class nào. 
